@@ -167,7 +167,7 @@ if __name__ == "__main__":
     lon_max = target_points['lon'].max()
     target_points['region'] = list(zip(target_points['lat'], target_points['lon']))
     
-    file_path = '../../weather_forecasting_app/data/mv_model_pred_inputs/'
+    file_path = '../data/mv_model_pred_inputs/'
     files = glob(file_path+'*')
     print('\n--2--Interpolating feature datasets:')
     print('\nFiles to Interpolate: ')
@@ -215,4 +215,4 @@ if __name__ == "__main__":
     df.loc[df['pevpr'] < 0, 'pevpr'] = pevpr_mean
     
     print('\n--6--Saving merged dataset to file')
-    np.save('../../weather_forecasting_app/data/mv_model_pred_inputs/processed_features', np.array(df))
+    np.save('../data/mv_model_pred_inputs/processed_features',np.array(df))

@@ -8,7 +8,7 @@ from src.get_data.load_functions import load_tar_datasets, load_column_names, lo
 
 if __name__ == "__main__":
 
-    prec_df = load_tar_datasets(pred_var='temp34', file_dir='../data/')
+    prec_df = load_tar_datasets(pred_var='temp34')
 
     locs = load_locations()
 

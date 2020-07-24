@@ -4,7 +4,7 @@ import numpy as np
 import pandas as pd
 
 
-def load_tar_datasets(pred_var, file_dir='../data/'):
+def load_tar_datasets(pred_var, file_dir='data/'):
     """ Assumes all datasets are downloaded """
     assert pred_var in ['temp34', 'prec34'], "pred_var should be either temp34 or prec34"
     all_files = glob(file_dir + "gt*.csv")
@@ -31,7 +31,7 @@ def load_tar_datasets(pred_var, file_dir='../data/'):
 
 def load_column_names(features_only=False):
     """ Loads column names for processed input array """
-    col_names = pd.read_csv('../data/standardization/column_names.csv')
+    col_names = pd.read_csv('data/standardization/column_names.csv')
     full_col_names = list(col_names['0'])
     col_names = list(col_names['0'])
     col_names.remove('tmp2m'), col_names.remove('precip')
@@ -41,20 +41,20 @@ def load_column_names(features_only=False):
         return full_col_names
 
 
-def load_feature_datasets(filepath='../data/mv_model_pred_inputs/processed_features.npy'):
+def load_feature_datasets(filepath='data/mv_model_pred_inputs/processed_features.npy'):
     features_df = np.load(filepath)
     col_names = load_column_names(features_only=True)
     features_df.columns = col_names
     return features_df
 
 
-def load_locations(filepath='../data/target_points.csv'):
+def load_locations(filepath='data/target_points.csv'):
     locations_df = pd.read_csv(filepath)
     locations_df['region_id'] = list(zip(locations_df['lat'], locations_df['lon']))
     return locations_df
 
 
-def load_standardizers(rootdir='../data/standardization/'):
+def load_standardizers(rootdir='data/standardization/'):
     feature_means = np.array(np.load(rootdir + 'feature_means.npy'))
     feature_stds = np.array(np.load(rootdir + 'feature_stds.npy'))
     feature_scaler = joblib.load(rootdir + 'all_feature_scaler.pkl', "r")

@@ -1,1 +1,0 @@
-NOTE - model files (4x 10mb) were struggling to be uploaded. These are successfully uploaded in the prec34 #period 16 submission, but omitted from the others so they could be uploaded using the portal.

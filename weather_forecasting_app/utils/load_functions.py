@@ -42,7 +42,8 @@ def load_column_names(features_only=False):
 
 
 def load_feature_datasets(filepath='data/prediction_inputs/processed_features.npy'):
-    features_df = np.load(filepath)
+    features_df = np.load(filepath, allow_pickle=True)
+    features_df = pd.DataFrame(features_df)
     col_names = load_column_names(features_only=True)
     features_df.columns = col_names
     return features_df

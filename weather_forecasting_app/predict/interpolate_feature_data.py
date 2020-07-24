@@ -7,11 +7,7 @@ from glob import glob
 from scipy.interpolate import griddata
 import pandas as pd
 import numpy as np
-import os
-print(os.getcwd())
-import sys
-# sys.path.append("src/")
-from src.load_functions import load_locations
+from utils.load_functions import load_locations
 # import joblib
 
 
@@ -93,7 +89,7 @@ def extract_region_data(dataset_name, dataset_dict, buffer=2):
     intp_data_list = []
     grid_x, grid_y = np.mgrid[lat_max:lat_min:23j, lon_min:lon_max:31j]
     for year in ['2019', '2020']:
-        print(year)
+        print("-",year)
         nc = netCDF4.Dataset(file_path + dataset_dict[dataset_name]['fp_prfx'] + '.' + year + '.nc')
 
         lat_south = np.argwhere((np.array(nc['lat']) >= dataset_dict[dataset_name]['lat_min'] - buffer) & \
@@ -162,10 +158,11 @@ def get_2wk_lat_lon_data(df, var, events_per_day=4):
     return (out_df)
 
 
-if __name__ == "__main__":
-
+# if __name__ == "__main__":
+def run_interpolation_pipeline():
     # Define target points, and lat lon ranges
     print('--1--Defining lat lon ranges from target grid points')
+    global lat_min, lon_min, lat_max, lon_max, file_path, target_points
     target_points = load_locations()
     lat_min = target_points['lat'].min()
     lon_min = target_points['lon'].min()
@@ -195,7 +192,7 @@ if __name__ == "__main__":
     for dataset in dataset_dict.keys():
         print('Interpolating dataset', dataset)
         dataset_dict[dataset]['data'] = extract_region_data(dataset_name=dataset, dataset_dict=dataset_dict, buffer=5)
-        print(dataset, "done")
+        print("-",dataset, "done")
 
     print('\n--3--Converting to 2 week averages')
     pres = get_2wk_lat_lon_data(df=dataset_dict['pres']['data'], var='pres')
@@ -226,4 +223,4 @@ if __name__ == "__main__":
     df.loc[df['pevpr'] < 0, 'pevpr'] = pevpr_mean
 
     print('\n--6--Saving merged dataset to file')
-    np.save('../data/prediction_inputs/processed_features', np.array(df))
+    np.save('data/prediction_inputs/processed_features', np.array(df))

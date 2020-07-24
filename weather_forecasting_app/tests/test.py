@@ -4,7 +4,7 @@ import numpy as np
 import pandas as pd
 import sklearn
 
-from src.get_data.load_functions import load_tar_datasets, load_column_names, load_feature_datasets, load_locations, load_standardizers
+from utils.load_functions import load_tar_datasets, load_column_names, load_feature_datasets, load_locations, load_standardizers
 
 if __name__ == "__main__":
 

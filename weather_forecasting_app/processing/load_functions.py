@@ -4,7 +4,7 @@ import numpy as np
 import pandas as pd
 
 
-def load_tar_datasets(pred_var, file_dir='data/'):
+def load_tar_datasets(pred_var, file_dir='data/ground_truth/'):
     """ Assumes all datasets are downloaded """
     assert pred_var in ['temp34', 'prec34'], "pred_var should be either temp34 or prec34"
     all_files = glob(file_dir + "gt*.csv")

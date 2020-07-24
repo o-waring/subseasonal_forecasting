@@ -41,7 +41,7 @@ def load_column_names(features_only=False):
         return full_col_names
 
 
-def load_feature_datasets(filepath='data/mv_model_pred_inputs/processed_features.npy'):
+def load_feature_datasets(filepath='data/prediction_inputs/processed_features.npy'):
     features_df = np.load(filepath)
     col_names = load_column_names(features_only=True)
     features_df.columns = col_names

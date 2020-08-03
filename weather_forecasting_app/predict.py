@@ -4,6 +4,7 @@ import numpy as np
 import pandas as pd
 import sklearn
 import os
+import tensorflow as tf
 
 # Processing feature dataset functions
 
@@ -59,7 +60,7 @@ if __name__ == "__main__":
 
     # ---3--- Prepare input batches
     print('---3--- Preparing input batches')
-    pred_model_input = generate_all_region_input()
+    pred_model_input = generate_all_region_input(input_tensor, target_region_ids, rgn_id_to_int)
 
     spatial_input_b1 = pred_model_input[0][0:256, :, :, :, :]
     temporal_input_b1 = pred_model_input[1][0:256, :, :]

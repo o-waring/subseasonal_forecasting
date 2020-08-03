@@ -45,7 +45,7 @@ def get_prediction_data(pred_date, latest_data_date, data, seq_len=26):
     return data
 
 
-def prepare_single_spatial_temporal_region(dataset, target_region, seq_len, sg, rgn_id_to_int, region_emb=True):
+def prepare_single_spatial_temporal_region(dataset, target_region, rgn_id_to_int, seq_len, sg, region_emb=True):
     """  """
     # Crop local region
     local_region = dataset[:, (target_region[0] - sg):(target_region[0] + sg + 1),
@@ -65,11 +65,11 @@ def prepare_single_spatial_temporal_region(dataset, target_region, seq_len, sg, 
         return np.array(spatial_data), np.array(temporal_data)
 
 
-def generate_all_region_input(input_tensor, target_region_ids):
+def generate_all_region_input(input_tensor, target_region_ids, rgn_id_to_int):
     spatial_data, temporal_data, reg_emb_data = [], [], []
     for rgn in target_region_ids:
         # Generate single window
-        spt, tmp, remb = prepare_single_spatial_temporal_region(input_tensor, rgn, seq_len=26, sg=5)
+        spt, tmp, remb = prepare_single_spatial_temporal_region(input_tensor, rgn, rgn_id_to_int, seq_len=26, sg=5)
         spatial_data.append(spt)
         temporal_data.append(tmp)
         reg_emb_data.append(remb)

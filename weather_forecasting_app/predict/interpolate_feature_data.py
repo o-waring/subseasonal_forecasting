@@ -1,14 +1,24 @@
-import pandas as pd
-import numpy as np
+"""
+ Script - interpolate_feature_data.py
+ Overview - extracts relevant lat/lon regional data from netCDF4 datasets for weather feature datasets - namely:
+ hgt, pres, pevpr, slp, rhum, pr_wtr. See https://arxiv.org/pdf/1809.07394.pdf Appendix A for data sources.
+ Note this are downloaded for 2019 and 2020 using get_feature_data_2019(2020).sh
+
+ Lat/lon regions defined by target_points.csv; these prescribe Western USA box regions of size 1 lat, 1 lon
+ Loaded datasets for weather features come at a different scale, so these are interpolated to the unit lat lon scale
+ required for this modelling exercise.
+ Two week averages are taken from a given start date.
+ All datasets are downloaded and processed for 2019 and 2020 (to date), interpolated, 2-week averaged, and merged,
+ with date based features added. Full pipeline saves processed_features.npy to disc.
+ """
+
 import datetime
 import netCDF4
 from glob import glob
-# import scipy
 from scipy.interpolate import griddata
 import pandas as pd
 import numpy as np
 from utils.load_functions import load_locations
-# import joblib
 
 
 ## Functions

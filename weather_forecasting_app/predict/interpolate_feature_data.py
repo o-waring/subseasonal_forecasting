@@ -10,7 +10,6 @@
  Two week averages are taken from a given start date.
  All datasets are downloaded and processed for 2019 and 2020 (to date), interpolated, 2-week averaged, and merged,
  with date based features added. Full pipeline saves processed_features.npy to disc.
-
  """
 
 import datetime

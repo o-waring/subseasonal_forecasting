@@ -9,10 +9,10 @@ Water and fire managers in Western USA rely on subseasonal (2-6 weeks ahead) for
 This repo outlines a hybrid spatial-temporal deep learning approach to the subseasonal forecasting task.
 
 #### USA Regional Temperature Plot
-![USA Regional Temperature Plot](usa_regional_temperature_plot.png)
+![USA Regional Temperature Plot](subseasonal_forecasting/plotting/usa_regional_temperature_plot.png)
 
 #### Spatial Temporal Model Diagram
-![Spatial Temporal Model Diagram](spatial_temporal_model_diagram.png)
+![Spatial Temporal Model Diagram](subseasonal_forecasting/plotting/spatial_temporal_model_diagram.png)
 
 
 

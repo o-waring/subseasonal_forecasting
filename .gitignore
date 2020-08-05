@@ -186,8 +186,8 @@ dmypy.json
 .pyre/
 
 # Data folder
-weather_forecasting_app/data/
-weather_forecasting_app/data/prediction_inputs/*
+subseasonal_forecasting/data/
+subseasonal_forecasting/data/prediction_inputs/*
 
 # csv files in home dir
 gt*.csv

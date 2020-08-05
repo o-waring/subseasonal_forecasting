@@ -6,7 +6,7 @@ suppressMessages(library(shp2graph))
 suppressMessages(library(sf))
 suppressMessages(library(sp))
 
-df <- fread('../geo_routing/2020-08-04.csv') %>% as.data.table
+df <- fread('../../../geo_routing/2020-08-04.csv') %>% as.data.table
 
 pal_temp34 <- colorQuantile(palette = 'YlOrRd', domain = df$temp34, n = 9)
 qpal_colors <- unique(pal_temp34(sort(df$temp34))) # hex codes

@@ -8,6 +8,8 @@ Water and fire managers in Western USA rely on subseasonal (2-6 weeks ahead) for
 
 This repo outlines a hybrid spatial-temporal deep learning approach to the subseasonal forecasting task.
 
+
+
 #### Spatial Temporal Model Diagram
 ![Spatial Temporal Model Diagram](spatial_temporal_model_diagram.png)
 

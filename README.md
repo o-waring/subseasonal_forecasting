@@ -15,4 +15,4 @@ This repo outlines a hybrid spatial-temporal deep learning approach to the subse
 
 
 
-[1] https://arxiv.org/pdf/1809.07394.pdf
+###### [1] *Improving Subseasonal Forecasting in the Western U.S. with Machine Learning - https://arxiv.org/pdf/1809.07394.pdf*

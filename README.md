@@ -41,15 +41,22 @@ Target variables are sourced using subseasonal_forecasting/download/(get_gt.py, 
 
 ### Spatial Temporal Modelling Approach
 
-#### Processing
+#### Preprocessing
 
 All datasets were downloaded, interpolated to 1° by 1° resolution for the 514 required geographies, converted to 2 week averages (or totals) and merged on unique start date and region lat lon.
 
 Cyclic features for date fields are added - with cosine and sin components taken for month of year and day of year.
 
-A unique region_id string was added to represent the region uniquely, resulting in a 514 class categorical feature.
+A unique region_id string was added to represent each region, resulting in a 514 class categorical feature.
 
 All 8 continuous weather features were standardized by subtracting mean and dividing by std of training dataset, before being scaled to [0,1] using a MinMaxScaler.
+
+#### Local Region Representation
+
+The full dataset was transformed to a global region tensor, with geographical regions not considered for prediction zero padded for each feature. Additionally, further zero padding was applied up to a max spatial granularity (max_sg, here set as 5) around the fringe regions. This resulted in a tensor of shape [num_timesteps, global_padded_width , global_padded_height, num features].
+
+#### Global Region Tensor Example
+![Global Region Tensor Example](subseasonal_forecasting/plotting/global_region_tensor.png)
 
 #### Spatial Temporal Model Diagram
 ![Spatial Temporal Model Diagram](subseasonal_forecasting/plotting/spatial_temporal_model_diagram.png)

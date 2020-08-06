@@ -1,4 +1,4 @@
-''' bash
+```
 subseasonal_forecasting git
 ├── subseasonal_forecasting
 │   ├── data
@@ -42,4 +42,4 @@ subseasonal_forecasting git
 │   └── README.py
 ├── README.md
 └── .gitignore
-'''
+```

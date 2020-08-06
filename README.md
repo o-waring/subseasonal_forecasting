@@ -8,8 +8,24 @@ Water and fire managers in Western USA rely on subseasonal (2-6 weeks ahead) for
 
 This repo outlines a hybrid spatial-temporal deep learning approach to the subseasonal forecasting task.
 
+#### Purpose
+
+The objective of this modelling effort is to forecast 2 week average temperature, and 2 week total precipitation for 3-4 and 5-6 weeks forecast horizons - subseasonal forecasts - across 514 regional geographies in Western USA. This resuts in four modelling challenges - 
+
+- temp34
+- temp56
+- prec34
+- prec56
+
+The geographical regions lie in the Western contiguous USA (not including Hawaii & Alaska), bounded by latitudes 25N to 50N and longitudes 125W to 93W, at a 1◦ by 1◦ resolution. A sample prediction across these geographical regions is shown below. The scoring metric is RMSE averaged across all 514 regions, for a given forecast horizon.
+
 #### USA Regional Temperature Plot
 ![USA Regional Temperature Plot](subseasonal_forecasting/plotting/usa_regional_temperature_plot.png)
+
+#### Data
+
+
+
 
 #### Spatial Temporal Model Diagram
 ![Spatial Temporal Model Diagram](subseasonal_forecasting/plotting/spatial_temporal_model_diagram.png)

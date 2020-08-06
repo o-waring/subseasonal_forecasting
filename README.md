@@ -55,8 +55,8 @@ All 8 continuous weather features were standardized by subtracting mean and divi
 
 The full dataset was transformed to a global region tensor, with geographical regions not considered for prediction zero padded for each feature. Additionally, further zero padding was applied up to a max spatial granularity (max_sg, here set as 5) around the fringe regions. This resulted in a tensor of shape [num_timesteps, global_padded_width , global_padded_height, num features].
 
-#### Global Region Tensor Example
-![Global Region Tensor Example](subseasonal_forecasting/plotting/global_region_tensor.png)
+#### Global Region Tensor Diagram
+![Global Region Tensor Diagram](subseasonal_forecasting/plotting/global_local_region_tensor.png)
 
 #### Spatial Temporal Model Diagram
 ![Spatial Temporal Model Diagram](subseasonal_forecasting/plotting/spatial_temporal_model_diagram.png)

@@ -17,14 +17,14 @@ The objective of this modelling effort is to forecast 2 week average temperature
 - prec34
 - prec56
 
-The geographical regions lie in the Western contiguous USA (not including Hawaii & Alaska), bounded by latitudes 25N to 50N and longitudes 125W to 93W, at a 1◦ by 1◦ resolution. A sample prediction across these geographical regions is shown below. The scoring metric is RMSE averaged across all 514 regions, for a given forecast horizon.
+The geographical regions lie in the Western contiguous USA (not including Hawaii & Alaska), bounded by latitudes 25N to 50N and longitudes 125W to 93W, at a 1° by 1° resolution. A sample prediction across these geographical regions is shown below. The scoring metric is RMSE averaged across all 514 regions, for a given forecast horizon.
 
 #### USA Regional Temperature Plot
 ![USA Regional Temperature Plot](subseasonal_forecasting/plotting/usa_regional_temperature_plot.png)
 
 #### Data
 
-Data is sourced from NOAA - the National Oceanic and Atmospheric Administration - with data available for all geographical regions from 1979 to 2020. These data sources are updated daily, as such forecasts can be made 3-4 and 5-6 weeks ahead with minimal data lag. Where available at a different lat lon resolution, the data is interpolated to a 1◦ by 1◦ resolution to fit the target prediction grid.
+Data is sourced from NOAA - the National Oceanic and Atmospheric Administration - with data available for all geographical regions from 1979 to 2020. These data sources are updated daily, as such forecasts can be made 3-4 and 5-6 weeks ahead with minimal data lag. Where available at a different lat lon resolution, the data is interpolated to a 1° by 1° resolution to fit the target prediction grid.
 
 The following data sources are used in this study as meterological input features - 
 

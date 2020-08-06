@@ -86,6 +86,6 @@ Training was run on Google Colab to utilise GPU support. To navigate RAM constra
 Hyperparameter and architecture tuning was conducted on sequence length, step (days between input timesteps), embedding size (including no embedding), spatial granularity, presence of 1D convolutional layers prior to LSTM input (to reduce dimensionality of longer sequences), dense layer unit size, number of 2D convolutional layers, and LSTM parameters.
 
 The following parameters were used:
-*SEQ_LEN = 26, STEP = 7, SG = 5, BATCH_SIZE = 256, STEPS_PER_EPOCH = 500, BUFFER_SIZE = 15000, PREFETCH_SIZE = 5, EPOCHS = 50, CONV2D_LAYERS = 1, CONV1D_LAYERS = 0, LSTM_LAYERS = 2, RGN_ID_EMB_DIM = 8, SPTL_CONV_FILTERS = 16, SPTL_KERNEL_SIZE = 2, SPTL_STRIDE = 1, SPTL_PADDING = 'same', SPTL_OUTPUT_DIM = 24, LSTM1_UNITS = 64, LSTM2_UNITS = 64, DROPOUT_RATE = 0.3*
+###### *SEQ_LEN = 26, STEP = 7, SG = 5, BATCH_SIZE = 256, STEPS_PER_EPOCH = 500, BUFFER_SIZE = 15000, PREFETCH_SIZE = 5, EPOCHS = 50, CONV2D_LAYERS = 1, CONV1D_LAYERS = 0, LSTM_LAYERS = 2, RGN_ID_EMB_DIM = 8, SPTL_CONV_FILTERS = 16, SPTL_KERNEL_SIZE = 2, SPTL_STRIDE = 1, SPTL_PADDING = 'same', SPTL_OUTPUT_DIM = 24, LSTM1_UNITS = 64, LSTM2_UNITS = 64, DROPOUT_RATE = 0.3*
 
 ###### [1] *Improving Subseasonal Forecasting in the Western U.S. with Machine Learning - https://arxiv.org/pdf/1809.07394.pdf*

@@ -1,7 +1,6 @@
-### Folder Structure
+### Folder Structure - subseasonal_forecasting
 
 ```
-subseasonal_forecasting git
 ├── subseasonal_forecasting
 │   ├── data
 │   │   ├── ground_truth

@@ -14,13 +14,13 @@ if __name__ == "__main__":
     repo_path = "../"
 
     # Series datasets
-    pres = process_series('data/training_inputs_raw/gt-contest_pres.sfc.gauss-14d-1948-2018.h5',repo_path) # Pressure
-    hgt = process_series('data/training_inputs_raw/gt-contest_wind_hgt_10-14d-1948-2018.h5',repo_path) # Wind @10m geopotential height
-    rhum = process_series('data/training_inputs_raw/gt-contest_rhum.sig995-14d-1948-2018.h5',repo_path) # Relative humidity
-    slp = process_series('data/training_inputs_raw/gt-contest_slp-14d-1948-2018.h5',repo_path) # Sea level pressure
-    prec = process_series('data/training_inputs_raw/gt-contest_precip-14d-1948-2018.h5',repo_path) # Precipitation
-    prwtr = process_series('data/training_inputs_raw/gt-contest_pr_wtr.eatm-14d-1948-2018.h5',repo_path) # Precipitable water
-    pevpr = process_series('data/training_inputs_raw/gt-contest_pevpr.sfc.gauss-14d-1948-2018.h5',repo_path) # Potential evaporation
+    pres = process_series('data/training/gt-contest_pres.sfc.gauss-14d-1948-2018.h5',repo_path) # Pressure
+    hgt = process_series('data/training/gt-contest_wind_hgt_10-14d-1948-2018.h5',repo_path) # Wind @10m geopotential height
+    rhum = process_series('data/training/gt-contest_rhum.sig995-14d-1948-2018.h5',repo_path) # Relative humidity
+    slp = process_series('data/training/gt-contest_slp-14d-1948-2018.h5',repo_path) # Sea level pressure
+    prec = process_series('data/training/gt-contest_precip-14d-1948-2018.h5',repo_path) # Precipitation
+    prwtr = process_series('data/training/gt-contest_pr_wtr.eatm-14d-1948-2018.h5',repo_path) # Precipitable water
+    pevpr = process_series('data/training/gt-contest_pevpr.sfc.gauss-14d-1948-2018.h5',repo_path) # Potential evaporation
 
     # Tmp2m datasets
     temp = pd.read_hdf(repo_path+'data/gt-contest_tmp2m-14d-1979-2018.h5')

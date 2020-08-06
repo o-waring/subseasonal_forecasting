@@ -1,4 +1,4 @@
-# Subseasonal Rodeo
+# Subseasonal Forecasting
 
 ### **Predicting subseasonal temperature & precipitation 3-4 and 5-6 weeks ahead for Western USA across 514 geographical regions**
 

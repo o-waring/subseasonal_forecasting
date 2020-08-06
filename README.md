@@ -62,13 +62,13 @@ This modelling approach captures local spatial information by inputing local reg
 
 #### Sequencing
 
-A sequence length of 26 was used for this model, with step 14; so a year of 26 fortnightly 2-week averaged inputs. Other sequence lengths and steps were considered, and can be parametrised; however this choice had the most success.
+A sequence length of 26 was used for this model, with step 7 - half a year of 26 fortnightly 2-week averaged inputs. Other sequence lengths and steps were considered, and can be parametrised; however this choice had the most success.
 
 #### Model
 
 The hybrid spatial-temporal model takes three input streams for a given region_id and start date. These three input streams are processed and concatenated before being fed into the LSTM architecture. See below diagram for architecture.
 
-1. Spatial Temporal Input - at each timestep, local region tensors centred around region_id are fed through a 2D convolutional layer, before being flattened, fed through a dense layer.
+1. Spatial Temporal Input - at each timestep, local region tensors centred around region_id are fed through a 2D convolutional layer, before being flattened, and fed through a dense layer.
 
 2. Region ID Embedding Input - at each timestep, region_id categorical field is fed through an embedding layer, with the aim to numerically compute similarity between regions.
 
@@ -79,8 +79,13 @@ The outputs of these three layers are concatenated into a single feature layer, 
 #### Spatial Temporal Model Diagram
 ![Spatial Temporal Model Diagram](subseasonal_forecasting/plotting/spatial_temporal_model_diagram.png)
 
+#### Training
 
+Training was run on Google Colab to utilise GPU support. To navigate RAM constraints, a generator was used for the local region processing to feed batches of 256 inputs into the model on each iteration, with the global region tensor stored in memory for faster processing upon fetch. Training was run for 50 epochs, with 500 steps per epoch, mean absolute error loss, and Adam optimizer with standard parameters. The latest 2 years of data was initially kept aside for validation and test. The model was built in Tensorflow 2, with Tensorboard used for diagnostic purposes and model comparison.
 
+Hyperparameter and architecture tuning was conducted on sequence length, step (days between input timesteps), embedding size (including no embedding), spatial granularity, presence of 1D convolutional layers prior to LSTM input (to reduce dimensionality of longer sequences), dense layer unit size, number of 2D convolutional layers, and LSTM parameters.
 
+The following parameters were used:
+*SEQ_LEN = 26, STEP = 7, SG = 5, BATCH_SIZE = 256, STEPS_PER_EPOCH = 500, BUFFER_SIZE = 15000, PREFETCH_SIZE = 5, EPOCHS = 50, CONV2D_LAYERS = 1, CONV1D_LAYERS = 0, LSTM_LAYERS = 2, RGN_ID_EMB_DIM = 8, SPTL_CONV_FILTERS = 16, SPTL_KERNEL_SIZE = 2, SPTL_STRIDE = 1, SPTL_PADDING = 'same', SPTL_OUTPUT_DIM = 24, LSTM1_UNITS = 64, LSTM2_UNITS = 64, DROPOUT_RATE = 0.3*
 
 ###### [1] *Improving Subseasonal Forecasting in the Western U.S. with Machine Learning - https://arxiv.org/pdf/1809.07394.pdf*

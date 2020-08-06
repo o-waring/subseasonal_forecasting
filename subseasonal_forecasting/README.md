@@ -1,4 +1,4 @@
-'''
+''' bash
 subseasonal_forecasting git
 ├── subseasonal_forecasting
 │   ├── data

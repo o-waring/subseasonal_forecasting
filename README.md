@@ -35,12 +35,21 @@ The following data sources are used in this study as meterological input feature
 - Potential evaporation rate (pevpr) - feature variable
 - Precipitable water (pr_wtr) - feature variable
 - Pressure (pres) - feature variable
+- Sea level pressure (slp) - feature variable
 
 Target variables are sourced using subseasonal_forecasting/download/(get_gt.py, get_target_data.py); feature variables are sourced using subseasonal_forecasting/download/get_feature_data_(2019, 2020).sh.
 
-### Modelling Approach
+### Spatial Temporal Modelling Approach
 
 #### Processing
+
+All datasets were downloaded, interpolated to 1° by 1° resolution for the 514 required geographies, converted to 2 week averages (or totals) and merged on unique start date and region lat lon.
+
+Cyclic features for date fields are added - with cosine and sin components taken for month of year and day of year.
+
+A unique region_id string was added to represent the region uniquely, resulting in a 514 class categorical feature.
+
+All 8 continuous weather features were standardized by subtracting mean and dividing by std of training dataset, before being scaled to [0,1] using a MinMaxScaler.
 
 #### Spatial Temporal Model Diagram
 ![Spatial Temporal Model Diagram](subseasonal_forecasting/plotting/spatial_temporal_model_diagram.png)

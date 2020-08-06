@@ -179,7 +179,7 @@ def run_interpolation_pipeline():
     lat_max = target_points['lat'].max()
     lon_max = target_points['lon'].max()
 
-    file_path = 'data/prediction_inputs/'
+    file_path = 'data/prediction_inputs_raw/'
     files = glob(file_path + '*')
     print('\n--2--Interpolating feature datasets:')
     print('\nFiles to Interpolate: ')
@@ -233,4 +233,4 @@ def run_interpolation_pipeline():
     df.loc[df['pevpr'] < 0, 'pevpr'] = pevpr_mean
 
     print('\n--6--Saving merged dataset to file')
-    np.save('data/prediction_inputs/processed_features', np.array(df))
+    np.save('data/prediction_inputs_raw/processed_features', np.array(df))

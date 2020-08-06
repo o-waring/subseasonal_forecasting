@@ -187,7 +187,7 @@ dmypy.json
 
 # Data folder
 subseasonal_forecasting/data/
-subseasonal_forecasting/data/prediction_inputs_raw/*
+subseasonal_forecasting/data/prediction/*
 
 # csv files in home dir
 gt*.csv

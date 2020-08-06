@@ -24,8 +24,23 @@ The geographical regions lie in the Western contiguous USA (not including Hawaii
 
 #### Data
 
+Data is sourced from NOAA - the National Oceanic and Atmospheric Administration - with data available for all geographical regions from 1979 to 2020. These data sources are updated daily, as such forecasts can be made 3-4 and 5-6 weeks ahead with minimal data lag. Where available at a different lat lon resolution, the data is interpolated to a 1◦ by 1◦ resolution to fit the target prediction grid.
+
+The following data sources are used in this study as meterological input features - 
+
+- Temperature - target and feature variable
+- Precipitation - target and feature variable
+- Relative humidity at surface (rhum) - feature variable
+- Geopotential height (hgt10) - feature variable
+- Potential evaporation rate (pevpr) - feature variable
+- Precipitable water (pr_wtr) - feature variable
+- Pressure (pres) - feature variable
+
+Target variables are sourced using subseasonal_forecasting/download/(get_gt.py, get_target_data.py); feature variables are sourced using subseasonal_forecasting/download/get_feature_data_(2019, 2020).sh.
 
 ### Modelling Approach
+
+#### Processing
 
 #### Spatial Temporal Model Diagram
 ![Spatial Temporal Model Diagram](subseasonal_forecasting/plotting/spatial_temporal_model_diagram.png)

@@ -219,3 +219,4 @@ archive/*
 
 # notebooks
 notebooks/
+*notebooks

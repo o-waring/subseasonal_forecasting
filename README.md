@@ -53,10 +53,28 @@ All 8 continuous weather features were standardized by subtracting mean and divi
 
 #### Local Region Representation
 
-The full dataset was transformed to a global region tensor, with geographical regions not considered for prediction zero padded for each feature. Additionally, further zero padding was applied up to a max spatial granularity (max_sg, here set as 5) around the fringe regions. This resulted in a tensor of shape [num_timesteps, global_padded_width , global_padded_height, num features].
+The full dataset was transformed to a global region tensor, with geographical regions not considered for prediction zero padded for each feature. Additionally, further zero padding was applied up to a max spatial granularity (max_sg, here set as 5) around the fringe regions. This resulted in a tensor of shape [num_timesteps, global_padded_width, global_padded_height, num features].
+
+This modelling approach captures local spatial information by inputing local region tensors, centred around each region, with spatial granularity sg < max_sg (here we use sg = 5, as shown in below figure). Note only weather features are fed through this layer.
 
 #### Global Region Tensor Diagram
 ![Global Region Tensor Diagram](subseasonal_forecasting/plotting/global_local_region_tensor.png)
+
+#### Sequencing
+
+A sequence length of 26 was used for this model, with step 14; so a year of 26 fortnightly 2-week averaged inputs. Other sequence lengths and steps were considered, and can be parametrised; however this choice had the most success.
+
+#### Model
+
+The hybrid spatial-temporal model takes three input streams for a given region_id and start date. These three input streams are processed and concatenated before being fed into the LSTM architecture. See below diagram for architecture.
+
+1. Spatial Temporal Input - at each timestep, local region tensors centred around region_id are fed through a 2D convolutional layer, before being flattened, fed through a dense layer.
+
+2. Region ID Embedding Input - at each timestep, region_id categorical field is fed through an embedding layer, with the aim to numerically compute similarity between regions.
+
+3. Temporal Input - at each timestep, weather and cyclical date features are input.
+
+The outputs of these three layers are concatenated into a single feature layer, which is fed into the LSTM architecture. This passes through two LSTM layers, followed by a single dense output layer predicting the target variable.
 
 #### Spatial Temporal Model Diagram
 ![Spatial Temporal Model Diagram](subseasonal_forecasting/plotting/spatial_temporal_model_diagram.png)

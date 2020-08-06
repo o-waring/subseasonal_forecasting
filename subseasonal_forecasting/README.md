@@ -1,3 +1,5 @@
+### Folder Structure
+
 ```
 subseasonal_forecasting git
 ├── subseasonal_forecasting

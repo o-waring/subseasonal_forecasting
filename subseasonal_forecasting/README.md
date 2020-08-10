@@ -36,10 +36,8 @@
 │   ├── tests
 │   │   ├── __init__.py
 │   ├── train
-│   │   ├── 3_spatial_temporal_model_emb_prec34.ipynb
-│   │   ├── 3_spatial_temporal_model_emb_prec56.ipynb
-│   │   ├── 3_spatial_temporal_model_emb_tmp34.ipynb
-│   │   └── 3_spatial_temporal_model_emb_tmp56.ipynb
+│   │   ├── __init__.py
+│   │   └── 3_spatial_temporal_model_temp34.py
 │   ├── utils
 │   │   ├── __init__.py
 │   │   └── load_functions.py

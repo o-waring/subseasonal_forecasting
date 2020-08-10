@@ -27,7 +27,7 @@ target_regions = load_locations()
 ## Get Params ##
 # Rodeo Track Params
 SPRINT_WEEK = 21
-TAR_VAR = 'prec'
+TAR_VAR = 'tmp'
 TAR_WEEK = '34'
 PRED_TAR = TAR_VAR+TAR_WEEK
 TAR_INDEX = {'tmp':2, 'prec':3}[TAR_VAR]

@@ -283,5 +283,5 @@ def train_spatial_temporal_model(model, dataset_generator, opt='adam', epochs=EP
 
 ## Train ##
 history = train_spatial_temporal_model(model = spatial_temporal_model, dataset_generator = dataset_generator,
-                                       opt = 'adam', steps_per_epoch=500, include_tb=True)
+                                       opt = 'adam', steps_per_epoch=500, include_tb=False)
 
